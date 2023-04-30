@@ -1,0 +1,67 @@
+ r square   4.6210178516802188E-004
+ r square   4.6233058498127479E-004
+ Calculation loop exceeds the limit. Result may not be correct. Try change alpha lower.
+ ----------------------------------------------------------------
+ Parameters
+ ----------------------------------------------------------------
+Iteration count =2
+x1=        0.99999, x2=        1.00002
+ ----------------------------------------------------------------
+ Errors
+ ----------------------------------------------------------------
+  -1.8317939085694679E-002
+   7.9283905245475239E-006
+   3.2131279088657871E-002
+  -3.5328468761896381E-002
+ ----------------------------------------------------------------
+where each diagonal element dii correspond to the variance of
+the parameter xi
+, and the off-diagonal element dij correspond to
+the covariance between parameters xi and xj
+ Co-variance matrix :
+ ----------------------------------------------------------------
+
+   1.3701911810466236E-004  -1.3015670744509432E-004
+  -1.3015670744509432E-004   1.5406350676507803E-004
+
+ ----------------------------------------------------------------
+the information matrix, since the higher the
+diagonal value kii, the more information we have about the
+parameter xi.
+Since the information matrix is proportional to the hessian, 
+strong curvature corresponds to high information, i.e. 
+good localization of the parameter.
+ Information matrix :
+ ----------------------------------------------------------------
+
+   36955.634417552305        31221.045128277678
+   31221.045128277678        32867.150327900432
+
+ ----------------------------------------------------------------
+ Second order term : ∇∇rt
+ ----------------------------------------------------------------
+  -1.4846988736836653E-311  -4.4719786094987821E-002
+  -7.7998059394704194E-002  -4.4719786094987821E-002
+
+ ----------------------------------------------------------------
+ Second order term : B^(-1)*Σr*∇∇rt
+ ----------------------------------------------------------------
+  -8.8496864751371981E-312   2.5171795985853073E-002
+   4.3905043556263353E-002  -2.9795290222244836E-002
+ ----------------------------------------------------------------
+ Hessian lineal : Jt*J
+ ----------------------------------------------------------------
+  0.59273222475736431      -0.56304606129558088
+ -0.56304606129558088       0.66646469764191729
+ ----------------------------------------------------------------
+ Full Hessian : Jt*J + Σr*∇∇rt
+ ----------------------------------------------------------------
+  0.59273222475736431      -0.60776584739056871
+ -0.64104412069028505       0.62174491154692946
+
+When f(x) diff 0, the Gauss-Newton method will converge linearly if the smallest singular value
+of Jt*J exceeds the largest singular value of B, but may otherwise diverge. It is not convergent
+when the minimum singular value of Jt*J + Σr*∇∇rt exceeds the maximum singular value of Jt*J.
+
+It can be seen how the difference between the Hessian matrix without taking into account the 
+quadratic terms and the Hessian matrix calculated with all the terms is minimal.
